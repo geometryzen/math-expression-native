@@ -22,8 +22,9 @@
         "dist/system/index.min.js.map"
     ],
     "keywords": [
-        "my",
-        "lib"
+        "math",
+        "expression",
+        "native"
     ],
     "publishConfig": {
         "access": "public"
