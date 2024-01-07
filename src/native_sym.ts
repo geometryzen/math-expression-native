@@ -30,7 +30,7 @@ export function is_native_sym(sym: Sym): boolean {
 function build_sym(code: Native): Sym {
     switch (code) {
         // Constants (upper case)...
-        case Native.E: return create_sym('E');
+        case Native.E: return create_sym('e');
         case Native.IMU: return create_sym('IMU');
         case Native.MASH: return create_sym('MASH');
         case Native.NIL: return create_sym('NIL');
@@ -40,8 +40,11 @@ function build_sym(code: Native): Sym {
         case Native.abs: return create_sym('abs');
         case Native.add: return create_sym('+');
         case Native.arccos: return create_sym('arccos');
+        case Native.arccosh: return create_sym('arccosh');
         case Native.arcsin: return create_sym('arcsin');
+        case Native.arcsinh: return create_sym('arcsinh');
         case Native.arctan: return create_sym('arctan');
+        case Native.arctanh: return create_sym('arctanh');
         case Native.arg: return create_sym('arg');
         case Native.circexp: return create_sym('circexp');
         case Native.clock: return create_sym('clock');
@@ -50,6 +53,7 @@ function build_sym(code: Native): Sym {
         case Native.condense: return create_sym('condense');
         case Native.conj: return create_sym('conj');
         case Native.cos: return create_sym('cos');
+        case Native.cosh: return create_sym('cosh');
         case Native.derivative: return create_sym('derivative');
         case Native.divide: return create_sym('/');
         case Native.exp: return create_sym('exp');
@@ -93,6 +97,7 @@ function build_sym(code: Native): Sym {
         case Native.setq: return create_sym('=');
         case Native.simplify: return create_sym('simplify');
         case Native.sin: return create_sym('sin');
+        case Native.sinh: return create_sym('sinh');
         case Native.sqrt: return create_sym('sqrt');
         case Native.spread: return create_sym('...');
         case Native.st: return create_sym('st');
@@ -101,6 +106,7 @@ function build_sym(code: Native): Sym {
         case Native.succ: return create_sym('succ');
         case Native.symbol: return create_sym('symbol');
         case Native.tan: return create_sym('tan');
+        case Native.tanh: return create_sym('tanh');
         case Native.tau: return create_sym('tau');
         case Native.taylor: return create_sym('taylor');
         case Native.test: return create_sym('test');
@@ -110,6 +116,6 @@ function build_sym(code: Native): Sym {
         case Native.testle: return create_sym('<=');
         case Native.testlt: return create_sym('<');
         case Native.testne: return create_sym('!=');
-        default: throw new Error(`${code}`);
+        default: throw new Error(`build_sym(${code}) is not defined.`);
     }
 }

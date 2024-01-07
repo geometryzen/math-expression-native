@@ -14,8 +14,11 @@ export enum Native {
     abs,
     add,
     arccos,
+    arccosh,
     arcsin,
+    arcsinh,
     arctan,
+    arctanh,
     arg,
     circexp,
     clock,
@@ -24,6 +27,7 @@ export enum Native {
     condense,
     conj,
     cos,
+    cosh,
     derivative,
     divide,
     exp,
@@ -82,6 +86,7 @@ export enum Native {
     setq,
     simplify,
     sin,
+    sinh,
     spread,
     sqrt,
     /**
@@ -95,6 +100,7 @@ export enum Native {
     succ,
     symbol,
     tan,
+    tanh,
     /**
      * tau(x) = 2 * PI * x
      */
