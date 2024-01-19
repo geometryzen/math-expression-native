@@ -4,13 +4,15 @@
  * Lowercase elements correspond to functions.
  */
 export enum Native {
-    // Constants (upper case)
-    E,
+    // Constants (mixed case)
+    mathematical_constant_Eulers_number_Napiers_constant,
     IMU,
     MASH,
     NIL,
-    PI,
-    // Functions (lower case)
+    greek_uppercase_letter_Pi,
+    greek_lowercase_letter_Pi,
+    mathematical_constant_Pi,
+    // Functions (usually lower case)
     abs,
     add,
     arccos,

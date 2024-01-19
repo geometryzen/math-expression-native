@@ -1,5 +1,8 @@
-import { create_sym, Sym } from "math-expression-atoms";
+import { create_sym, create_sym_ns, Sym } from "math-expression-atoms";
 import { Native } from "./Native";
+
+const ns_mathematical_constants = 'Math';
+const ns_greek_alphabet = 'Greek';
 
 const cacheN: Map<Native, Sym> = new Map();
 const cacheS: Map<string, Sym> = new Map();
@@ -12,13 +15,13 @@ export function native_sym(code: Native): Sym {
     else {
         const s = build_sym(code);
         cacheN.set(code, s);
-        cacheS.set(s.printname, s);
+        cacheS.set(s.key(), s);
         return s;
     }
 }
 
 export function is_native_sym(sym: Sym): boolean {
-    const candidate = cacheS.get(sym.printname);
+    const candidate = cacheS.get(sym.key());
     if (candidate) {
         return true;
     }
@@ -30,12 +33,13 @@ export function is_native_sym(sym: Sym): boolean {
 function build_sym(code: Native): Sym {
     switch (code) {
         // Constants (upper case)...
-        case Native.E: return create_sym('e');
+        case Native.mathematical_constant_Eulers_number_Napiers_constant: return create_sym_ns('e', ns_mathematical_constants);
         case Native.IMU: return create_sym('IMU');
         case Native.MASH: return create_sym('MASH');
         case Native.NIL: return create_sym('NIL');
-        // Important for the string value to be lowercase in order to be recognized by SVG rendering.
-        case Native.PI: return create_sym('pi');
+        case Native.greek_uppercase_letter_Pi: return create_sym_ns('PI', ns_greek_alphabet);
+        case Native.mathematical_constant_Pi: return create_sym_ns('Pi', ns_mathematical_constants);
+        case Native.greek_lowercase_letter_Pi: return create_sym_ns('pi', ns_greek_alphabet);
         // Functions (lower case)...
         case Native.abs: return create_sym('abs');
         case Native.add: return create_sym('+');
