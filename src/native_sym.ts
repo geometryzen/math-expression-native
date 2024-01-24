@@ -98,7 +98,7 @@ function build_sym(code: Native): Sym {
         case Native.re: return create_sym('re');
         case Native.rect: return create_sym('rect');
         case Native.rco: return create_sym('>>');
-        case Native.setq: return create_sym('=');
+        case Native.assign: return create_sym('=');
         case Native.simplify: return create_sym('simplify');
         case Native.sin: return create_sym('sin');
         case Native.sinh: return create_sym('sinh');
