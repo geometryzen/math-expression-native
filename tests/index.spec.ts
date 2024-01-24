@@ -4,19 +4,19 @@ import { is_native_sym, Native, native_sym } from "../src/index";
 test("mathematical constant Pi", function () {
     const Pi = native_sym(Native.mathematical_constant_Pi);
     expect(is_native_sym(Pi)).toBe(true);
-    expect(Pi.key()).toBe(":Math/Pi");
+    expect(Pi.key()).toBe("Math/Pi");
 });
 
 test("Greek uppercase letter Pi", function () {
     const PI = native_sym(Native.greek_uppercase_letter_Pi);
     expect(is_native_sym(PI)).toBe(true);
-    expect(PI.key()).toBe(":Greek/PI");
+    expect(PI.key()).toBe("Greek/PI");
 });
 
 test("Greek lowercase letter Pi", function () {
     const pi = native_sym(Native.greek_lowercase_letter_Pi);
     expect(is_native_sym(pi)).toBe(true);
-    expect(pi.key()).toBe(":Greek/pi");
+    expect(pi.key()).toBe("Greek/pi");
 });
 
 test("caching", function () {
@@ -34,7 +34,7 @@ test("foo is NOT native", function () {
 test("Euler's number", function () {
     const sym = native_sym(Native.mathematical_constant_Eulers_number_Napiers_constant);
     expect(is_native_sym(sym)).toBe(true);
-    expect(sym.key()).toBe(":Math/e");
+    expect(sym.key()).toBe("Math/e");
 });
 test("add", function () {
     const sym = native_sym(Native.add);
