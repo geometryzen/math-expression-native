@@ -33,12 +33,12 @@ export function is_native_sym(sym: Sym): boolean {
 function build_sym(code: Native): Sym {
     switch (code) {
         // Constants (upper case)...
-        case Native.mathematical_constant_Eulers_number_Napiers_constant: return create_sym_ns('e', ns_mathematical_constants);
+        case Native.E: return create_sym_ns('e', ns_mathematical_constants);
         case Native.IMU: return create_sym('IMU');
         case Native.MASH: return create_sym('MASH');
         case Native.NIL: return create_sym('NIL');
         case Native.greek_uppercase_letter_Pi: return create_sym_ns('PI', ns_greek_alphabet);
-        case Native.mathematical_constant_Pi: return create_sym_ns('Pi', ns_mathematical_constants);
+        case Native.PI: return create_sym_ns('Pi', ns_mathematical_constants);
         case Native.greek_lowercase_letter_Pi: return create_sym_ns('pi', ns_greek_alphabet);
         // Functions (lower case)...
         case Native.abs: return create_sym('abs');

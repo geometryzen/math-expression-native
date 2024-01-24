@@ -2,7 +2,7 @@ import { create_sym } from "math-expression-atoms";
 import { is_native_sym, Native, native_sym } from "../src/index";
 
 test("mathematical constant Pi", function () {
-    const Pi = native_sym(Native.mathematical_constant_Pi);
+    const Pi = native_sym(Native.PI);
     expect(is_native_sym(Pi)).toBe(true);
     expect(Pi.key()).toBe("Math/Pi");
 });
@@ -32,7 +32,7 @@ test("foo is NOT native", function () {
 });
 
 test("Euler's number", function () {
-    const sym = native_sym(Native.mathematical_constant_Eulers_number_Napiers_constant);
+    const sym = native_sym(Native.E);
     expect(is_native_sym(sym)).toBe(true);
     expect(sym.key()).toBe("Math/e");
 });

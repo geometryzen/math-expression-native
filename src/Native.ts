@@ -5,13 +5,19 @@
  */
 export enum Native {
     // Constants (mixed case)
-    mathematical_constant_Eulers_number_Napiers_constant,
+    /**
+     * Euler's number or Napier's constant.
+     */
+    E,
     IMU,
     MASH,
     NIL,
     greek_uppercase_letter_Pi,
     greek_lowercase_letter_Pi,
-    mathematical_constant_Pi,
+    /**
+     * mathematical constant Pi.
+     */
+    PI,
     // Functions (usually lower case)
     abs,
     add,
