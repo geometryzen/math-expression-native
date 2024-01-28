@@ -36,6 +36,8 @@ export enum Native {
     conj,
     cos,
     cosh,
+    def,
+    defn,
     derivative,
     divide,
     exp,
@@ -49,6 +51,10 @@ export enum Native {
     filter,
     float,
     /**
+     * (fn [params*] body)
+     */
+    fn,
+     /**
      * (function body paramList)
      */
     function,
@@ -71,6 +77,7 @@ export enum Native {
     iszero,
     lco,
     leading,
+    let,
     log,
     lookup,
     /**

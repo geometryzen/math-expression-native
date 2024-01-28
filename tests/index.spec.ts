@@ -81,10 +81,35 @@ test("cosh", function () {
     expect(is_native_sym(sym)).toBe(true);
     expect(sym.key()).toBe("cosh");
 });
+test("def", function () {
+    const sym = native_sym(Native.def);
+    expect(is_native_sym(sym)).toBe(true);
+    expect(sym.key()).toBe("def");
+});
+test("defn", function () {
+    const sym = native_sym(Native.defn);
+    expect(is_native_sym(sym)).toBe(true);
+    expect(sym.key()).toBe("defn");
+});
 test("exp", function () {
     const sym = native_sym(Native.exp);
     expect(is_native_sym(sym)).toBe(true);
     expect(sym.key()).toBe("exp");
+});
+test("fn", function () {
+    const sym = native_sym(Native.fn);
+    expect(is_native_sym(sym)).toBe(true);
+    expect(sym.key()).toBe("fn");
+});
+test("function", function () {
+    const sym = native_sym(Native.function);
+    expect(is_native_sym(sym)).toBe(true);
+    expect(sym.key()).toBe("function");
+});
+test("let", function () {
+    const sym = native_sym(Native.let);
+    expect(is_native_sym(sym)).toBe(true);
+    expect(sym.key()).toBe("let");
 });
 test("multiply", function () {
     const sym = native_sym(Native.multiply);

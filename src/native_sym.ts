@@ -58,6 +58,8 @@ function build_sym(code: Native): Sym {
         case Native.conj: return create_sym('conj');
         case Native.cos: return create_sym('cos');
         case Native.cosh: return create_sym('cosh');
+        case Native.def: return create_sym('def');
+        case Native.defn: return create_sym('defn');
         case Native.derivative: return create_sym('derivative');
         case Native.divide: return create_sym('/');
         case Native.exp: return create_sym('exp');
@@ -67,6 +69,7 @@ function build_sym(code: Native): Sym {
         case Native.factorial: return create_sym('factorial');
         case Native.filter: return create_sym('filter');
         case Native.float: return create_sym('float');
+        case Native.fn: return create_sym('fn');
         case Native.function: return create_sym('function');
         case Native.gcd: return create_sym('gcd');
         case Native.im: return create_sym('im');
@@ -84,6 +87,7 @@ function build_sym(code: Native): Sym {
         case Native.iszero: return create_sym('iszero');
         case Native.lco: return create_sym('<<');
         case Native.leading: return create_sym('leading');
+        case Native.let: return create_sym('let');
         case Native.log: return create_sym('log');
         case Native.lookup: return create_sym('lookup');
         case Native.mod: return create_sym('mod');
