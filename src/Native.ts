@@ -28,6 +28,7 @@ export enum Native {
     arctan,
     arctanh,
     arg,
+    atom,
     circexp,
     clock,
     complex,
@@ -38,6 +39,7 @@ export enum Native {
     cosh,
     def,
     defn,
+    deref,
     derivative,
     divide,
     exp,
@@ -54,9 +56,9 @@ export enum Native {
      * (fn [params*] body)
      */
     fn,
-     /**
-     * (function body paramList)
-     */
+    /**
+    * (function body paramList)
+    */
     function,
     gcd,
     /**

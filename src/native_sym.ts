@@ -4,8 +4,15 @@ import { Native } from "./Native";
 const ns_mathematical_constants = 'Math';
 const ns_greek_alphabet = 'Greek';
 
+/**
+ * map from the enumeration (number) to the Sym.
+ * TODO: Replace this with a binary search?
+ */
 const cacheN: Map<Native, Sym> = new Map();
-const cacheS: Map<string, Sym> = new Map();
+/**
+ * map from the Sym.key() (string) to the Sym.
+ */
+const cacheS: Map<string, Native> = new Map();
 
 export function native_sym(code: Native): Sym {
     const sym = cacheN.get(code);
@@ -15,19 +22,13 @@ export function native_sym(code: Native): Sym {
     else {
         const s = build_sym(code);
         cacheN.set(code, s);
-        cacheS.set(s.key(), s);
+        cacheS.set(s.key(), code);
         return s;
     }
 }
 
 export function is_native_sym(sym: Sym): boolean {
-    const candidate = cacheS.get(sym.key());
-    if (candidate) {
-        return true;
-    }
-    else {
-        return false;
-    }
+    return cacheS.has(sym.key());
 }
 
 function build_sym(code: Native): Sym {
@@ -50,6 +51,7 @@ function build_sym(code: Native): Sym {
         case Native.arctan: return create_sym('arctan');
         case Native.arctanh: return create_sym('arctanh');
         case Native.arg: return create_sym('arg');
+        case Native.atom: return create_sym('atom');
         case Native.circexp: return create_sym('circexp');
         case Native.clock: return create_sym('clock');
         case Native.complex: return create_sym('complex');
@@ -60,6 +62,7 @@ function build_sym(code: Native): Sym {
         case Native.cosh: return create_sym('cosh');
         case Native.def: return create_sym('def');
         case Native.defn: return create_sym('defn');
+        case Native.deref: return create_sym('deref');
         case Native.derivative: return create_sym('derivative');
         case Native.divide: return create_sym('/');
         case Native.exp: return create_sym('exp');

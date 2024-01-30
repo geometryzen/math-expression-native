@@ -71,6 +71,11 @@ test("arctanh", function () {
     expect(is_native_sym(sym)).toBe(true);
     expect(sym.key()).toBe("arctanh");
 });
+test("atom", function () {
+    const sym = native_sym(Native.atom);
+    expect(is_native_sym(sym)).toBe(true);
+    expect(sym.key()).toBe("atom");
+});
 test("cos", function () {
     const sym = native_sym(Native.cos);
     expect(is_native_sym(sym)).toBe(true);
@@ -90,6 +95,11 @@ test("defn", function () {
     const sym = native_sym(Native.defn);
     expect(is_native_sym(sym)).toBe(true);
     expect(sym.key()).toBe("defn");
+});
+test("deref", function () {
+    const sym = native_sym(Native.deref);
+    expect(is_native_sym(sym)).toBe(true);
+    expect(sym.key()).toBe("deref");
 });
 test("exp", function () {
     const sym = native_sym(Native.exp);
