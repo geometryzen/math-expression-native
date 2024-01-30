@@ -57,6 +57,9 @@
         "url": "https://github.com/geometryzen/math-expression-native/issues"
     },
     "homepage": "https://github.com/geometryzen/math-expression-native#readme",
+    "dependencies": {
+        "generic-rbtree": "^1.1.2"
+    },
     "devDependencies": {
         "@rollup/plugin-commonjs": "^25.0.7",
         "@rollup/plugin-node-resolve": "^15.2.3",
@@ -82,7 +85,6 @@
         "typescript": "^5.3.3"
     },
     "peerDependencies": {
-        "generic-rbtree": "^1.1.2",
         "math-expression-atoms": "^0.9.20"
     }
 }
