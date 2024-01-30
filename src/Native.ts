@@ -129,5 +129,19 @@ export enum Native {
     testgt,
     testle,
     testlt,
-    testne,
+    testne
 }
+
+/**
+ * https://stackoverflow.com/questions/72284571/how-to-get-the-min-max-value-of-enum-in-typescript
+ */
+function getMinMaxOfEnum(e: object): [min: number, max: number] {
+    // const values = Object.keys(e).map(k => k === "" ? NaN : +k).filter(k => !isNaN(k));
+    const values = Object.keys(e).map(k => +k).filter(k => !isNaN(k));
+    return [Math.min(...values), Math.max(...values)];
+}
+
+const minmax = getMinMaxOfEnum(Native);
+
+export const NATIVE_MIN = minmax[0];
+export const NATIVE_MAX = minmax[1];

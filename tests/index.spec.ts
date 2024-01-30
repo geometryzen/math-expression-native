@@ -1,5 +1,27 @@
-import { create_sym } from "math-expression-atoms";
-import { is_native_sym, Native, native_sym } from "../src/index";
+import { create_sym, create_sym_ns } from "math-expression-atoms";
+import { code_from_native_sym, is_native, is_native_sym, Native, NATIVE_MAX, NATIVE_MIN, native_sym, ns_greek_alphabet, ns_mathematical_constants } from "../src/index";
+
+test("NATIVE_MIN", function () {
+    expect(NATIVE_MIN).toBe(0);
+});
+
+test("NATIVE_MAX", function () {
+    expect(NATIVE_MAX).toBe(91);
+});
+
+test("is_native", function () {
+    expect(is_native(create_sym("bogus"), Native.E)).toBe(false);
+    expect(is_native(create_sym_ns("e", ns_mathematical_constants), Native.E)).toBe(true);
+    expect(is_native(native_sym(Native.E), Native.E)).toBe(true);
+    expect(is_native(native_sym(Native.PI), Native.E)).toBe(false);
+    expect(is_native(create_sym_ns("x", ns_mathematical_constants), Native.E)).toBe(false);
+    expect(is_native(create_sym_ns("e", ns_greek_alphabet), Native.E)).toBe(false);
+});
+
+test("code_from_native_sym", function () {
+    expect(code_from_native_sym(native_sym(Native.E))).toBe(Native.E);
+    expect(code_from_native_sym(create_sym("bogus"))).toBe(-1);
+});
 
 test("mathematical constant Pi", function () {
     const Pi = native_sym(Native.PI);

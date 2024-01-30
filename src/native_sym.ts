@@ -1,34 +1,67 @@
+import { RBTree } from "generic-rbtree";
 import { create_sym, create_sym_ns, Sym } from "math-expression-atoms";
-import { Native } from "./Native";
+import { Native, NATIVE_MAX, NATIVE_MIN } from "./Native";
 
-const ns_mathematical_constants = 'Math';
-const ns_greek_alphabet = 'Greek';
+export const ns_mathematical_constants = 'Math';
+export const ns_greek_alphabet = 'Greek';
 
+interface Comparator<K> {
+    (a: K, b: K): (-1 | 1 | 0);
+}
+
+const numberComparator: Comparator<number> = function (x: number, y: number) {
+    if (x < y) {
+        return -1;
+    }
+    if (x > y) {
+        return 1;
+    }
+    return 0;
+};
+
+const nilValue = create_sym_ns('', '');
 /**
- * map from the enumeration (number) to the Sym.
- * TODO: Replace this with a binary search?
+ * map from Native to the Sym using RBTree.
  */
-const cacheN: Map<Native, Sym> = new Map();
+const cacheN: RBTree<Native, Sym> = new RBTree<Native, Sym>(NATIVE_MIN - 1, NATIVE_MAX + 1, nilValue, numberComparator);
 /**
  * map from the Sym.key() (string) to the Sym.
  */
 const cacheS: Map<string, Native> = new Map();
 
+for (let code = NATIVE_MIN; code <= NATIVE_MAX; code++) {
+    const sym = build_sym(code);
+    cacheN.insert(code, sym);
+    cacheS.set(sym.key(), code);
+}
+
+/**
+ * @returns The `Sym` corresponding to the `Native` `code`.
+ */
 export function native_sym(code: Native): Sym {
-    const sym = cacheN.get(code);
-    if (sym) {
-        return sym;
+    return cacheN.search(code);
+}
+
+/**
+ * @returns Determines whether the `sym` is recognized as `Native`.
+ */
+export function is_native_sym(sym: Sym): boolean {
+    return cacheS.has(sym.key());
+}
+
+export function code_from_native_sym(sym: Sym): Native | -1 {
+    const key = sym.key();
+    if (cacheS.has(sym.key())) {
+        return cacheS.get(key);
     }
     else {
-        const s = build_sym(code);
-        cacheN.set(code, s);
-        cacheS.set(s.key(), code);
-        return s;
+        return -1;
     }
 }
 
-export function is_native_sym(sym: Sym): boolean {
-    return cacheS.has(sym.key());
+export function is_native(sym: Sym, code: Native): boolean {
+    const genuine = cacheN.search(code);
+    return genuine.equalsSym(sym);
 }
 
 function build_sym(code: Native): Sym {
@@ -127,6 +160,6 @@ function build_sym(code: Native): Sym {
         case Native.testle: return create_sym('<=');
         case Native.testlt: return create_sym('<');
         case Native.testne: return create_sym('!=');
-        default: throw new Error(`build_sym(${code}) is not defined.`);
+        // default: throw new Error(`build_sym(${code}) is not defined.`);
     }
 }
