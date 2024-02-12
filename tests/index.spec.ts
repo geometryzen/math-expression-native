@@ -6,7 +6,7 @@ test("NATIVE_MIN", function () {
 });
 
 test("NATIVE_MAX", function () {
-    expect(NATIVE_MAX).toBe(91);
+    expect(NATIVE_MAX).toBe(162);
 });
 
 test("is_native", function () {
