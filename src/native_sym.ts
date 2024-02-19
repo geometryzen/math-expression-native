@@ -78,6 +78,7 @@ function build_sym(code: Native): Sym {
         case Native.abs: return create_sym('abs');
         case Native.adj: return create_sym('adj');
         case Native.add: return create_sym('+');
+        case Native.and: return create_sym('and');
         case Native.arccos: return create_sym('arccos');
         case Native.arccosh: return create_sym('arccosh');
         case Native.arcsin: return create_sym('arcsin');
@@ -87,6 +88,9 @@ function build_sym(code: Native): Sym {
         case Native.arg: return create_sym('arg');
         case Native.assign: return create_sym('=');
         case Native.atom: return create_sym('atom');
+        case Native.autoexpand: return create_sym('autoexpand');
+        case Native.autofactor: return create_sym('autofactor');
+        case Native.bake: return create_sym('bake');
         case Native.besselj: return create_sym('besselj');
         case Native.bessely: return create_sym('bessely');
         case Native.binding: return create_sym('binding');
@@ -147,21 +151,26 @@ function build_sym(code: Native): Sym {
         case Native.for: return create_sym('for');
         case Native.fn: return create_sym('fn');
         case Native.function: return create_sym('function');
+        case Native.gamma: return create_sym('gamma');
         case Native.gcd: return create_sym('gcd');
         case Native.grad: return create_sym('grad');
+        case Native.grade: return create_sym('grade');
         case Native.hadamard: return create_sym('hadamard');
         case Native.hermite: return create_sym('hermite');
         case Native.hilbert: return create_sym('hilbert');
+        case Native.if: return create_sym('if');
         case Native.imag: return create_sym('imag');
         case Native.infinitesimal: return create_sym('infinitesimal');
         case Native.inner: return create_sym('inner');
         case Native.integral: return create_sym('integral');
         case Native.inv: return create_sym('inv');
+        case Native.invg: return create_sym('invg');
         case Native.iscomplex: return create_sym('iscomplex');
         case Native.isimag: return create_sym('isimag');
         case Native.isinfinite: return create_sym('isinfinite');
         case Native.isinfinitesimal: return create_sym('isinfinitesimal');
         case Native.isnegative: return create_sym('isnegative');
+        case Native.isone: return create_sym('isone');
         case Native.ispositive: return create_sym('ispositive');
         case Native.isprime: return create_sym('isprime');
         case Native.isreal: return create_sym('isreal');
@@ -177,6 +186,7 @@ function build_sym(code: Native): Sym {
         case Native.log: return create_sym('log');
         case Native.lookup: return create_sym('lookup');
         case Native.mag: return create_sym('mag');
+        case Native.major: return create_sym('major');
         case Native.minor: return create_sym('minor');
         case Native.minormatrix: return create_sym('minormatrix');
         case Native.mod: return create_sym('mod');
@@ -184,9 +194,12 @@ function build_sym(code: Native): Sym {
         case Native.noexpand: return create_sym('noexpand');
         case Native.not: return create_sym('not');
         case Native.nroots: return create_sym('nroots');
+        case Native.number: return create_sym('number');
         case Native.numerator: return create_sym('numerator');
         case Native.or: return create_sym('or');
         case Native.outer: return create_sym('outer');
+        case Native.patch: return create_sym('patch');
+        case Native.pattern: return create_sym('pattern');
         case Native.polar: return create_sym('polar');
         case Native.pow: return create_sym('pow');
         case Native.pred: return create_sym('pred');
@@ -202,6 +215,7 @@ function build_sym(code: Native): Sym {
         case Native.rco: return create_sym('>>');
         case Native.roots: return create_sym('roots');
         case Native.rotate: return create_sym('rotate');
+        case Native.round: return create_sym('round');
         case Native.run: return create_sym('run');
         case Native.shape: return create_sym('shape');
         case Native.simplify: return create_sym('simplify');
@@ -227,9 +241,13 @@ function build_sym(code: Native): Sym {
         case Native.testle: return create_sym('<=');
         case Native.testlt: return create_sym('<');
         case Native.testne: return create_sym('!=');
+        case Native.trace: return create_sym('trace');
         case Native.transpose: return create_sym('transpose');
         case Native.tty: return create_sym('tty');
+        case Native.typeof: return create_sym('typeof');
         case Native.unit: return create_sym('unit');
+        case Native.uom: return create_sym('uom');
+        case Native.version: return create_sym('version');
         case Native.zero: return create_sym('zero');
         default: throw new Error(`${code} symbol is not defined.`);
     }
