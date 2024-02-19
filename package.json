@@ -1,6 +1,6 @@
 {
     "name": "math-expression-native",
-    "version": "0.9.17",
+    "version": "0.9.18",
     "description": "Provides the meaning of universal mathematics symbols",
     "exports": {
         ".": {
