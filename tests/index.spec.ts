@@ -23,6 +23,10 @@ test("code_from_native_sym", function () {
     expect(code_from_native_sym(create_sym("bogus"))).toBe(-1);
 });
 
+test("if", function () {
+    expect(native_sym(Native.E).id).toBe(Native.E);
+});
+
 test("mathematical constant Pi", function () {
     const Pi = native_sym(Native.PI);
     expect(is_native_sym(Pi)).toBe(true);
