@@ -1,5 +1,5 @@
 import { Sym } from 'math-expression-atoms';
-import { Cons1, items_to_cons, U } from 'math-expression-tree';
+import { cons, Cons1, Cons2, items_to_cons, nil, U } from 'math-expression-tree';
 import { Native } from './Native';
 import { native_sym } from './native_sym';
 
@@ -12,19 +12,41 @@ const LOG = native_sym(Native.log);
 const MULTIPLY = native_sym(Native.multiply);
 const REAL = native_sym(Native.real);
 
-function combination1(opr: Sym, arg: U): Cons1<Sym, U> {
-    return items_to_cons(opr, arg) as Cons1<Sym, U>;
+export function combination1<A extends U>(opr: Sym, a: A): Cons1<Sym, A> {
+    const argList = cons(a, nil);
+    try {
+        return cons(opr, argList) as Cons1<Sym, A>;
+    }
+    finally {
+        argList.release();
+    }
 }
 
-export function exp(arg: U): Cons1<Sym, U> {
+export function combination2<A extends U, B extends U>(opr: Sym, a: A, b: B): Cons2<Sym, A, B> {
+    const bList = cons(b, nil);
+    try {
+        const argList = cons(a, bList);
+        try {
+            return cons(opr, argList) as Cons2<Sym, A, B>;
+        }
+        finally {
+            argList.release();
+        }
+    }
+    finally {
+        bList.release();
+    }
+}
+
+export function exp<A extends U>(arg: A): Cons1<Sym, A> {
     return combination1(EXP, arg);
 }
 
-export function imag(arg: U): Cons1<Sym, U> {
+export function imag<A extends U>(arg: A): Cons1<Sym, A> {
     return combination1(IMAG, arg);
 }
 
-export function log(arg: U): Cons1<Sym, U> {
+export function log<A extends U>(arg: A): Cons1<Sym, A> {
     return combination1(LOG, arg);
 }
 
@@ -32,6 +54,6 @@ export function multiply(...args: U[]): U {
     return items_to_cons(MULTIPLY, ...args);
 }
 
-export function real(arg: U): Cons1<Sym, U> {
+export function real<A extends U>(arg: A): Cons1<Sym, A> {
     return combination1(REAL, arg);
 }

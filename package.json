@@ -70,7 +70,7 @@
         "@types/rollup-plugin-peer-deps-external": "^2.2.4",
         "@typescript-eslint/eslint-plugin": "^7.0.2",
         "@typescript-eslint/parser": "^7.0.2",
-        "eslint": "^8.56.0",
+        "eslint": "^8.57.0",
         "gh-pages": "^6.1.1",
         "jest": "^29.7.0",
         "open-cli": "^8.0.0",
@@ -85,7 +85,7 @@
         "typescript": "^5.3.3"
     },
     "peerDependencies": {
-        "math-expression-atoms": "^0.9.38",
+        "math-expression-atoms": "^0.9.39",
         "math-expression-tree": "^0.9.26"
     }
 }

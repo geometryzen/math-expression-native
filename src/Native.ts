@@ -96,6 +96,11 @@ export enum Native {
     float,
     floor,
     for,
+    formatascii,
+    formathuman,
+    formatinfix,
+    formatlatex,
+    formatsexpr,
     /**
      * (fn [params*] body)
      */
