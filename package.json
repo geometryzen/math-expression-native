@@ -86,6 +86,6 @@
     },
     "peerDependencies": {
         "math-expression-atoms": "^0.9.39",
-        "math-expression-tree": "^0.9.26"
+        "math-expression-tree": "^0.9.27"
     }
 }

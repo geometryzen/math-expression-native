@@ -162,11 +162,11 @@ function build_sym(code: Native): Sym {
         case Native.float: return create_sym_id('float', Native.float);
         case Native.floor: return create_sym_id('floor', Native.floor);
         case Native.for: return create_sym_id('for', Native.for);
-        case Native.formatascii: return create_sym_id('formatascii', Native.formatascii);
-        case Native.formathuman: return create_sym_id('formathuman', Native.formathuman);
-        case Native.formatinfix: return create_sym_id('formatinfix', Native.formatinfix);
-        case Native.formatlatex: return create_sym_id('formatlatex', Native.formatlatex);
-        case Native.formatsexpr: return create_sym_id('formatsexpr', Native.formatsexpr);
+        case Native.ascii: return create_sym_id('ascii', Native.ascii);
+        case Native.human: return create_sym_id('human', Native.human);
+        case Native.infix: return create_sym_id('infix', Native.infix);
+        case Native.latex: return create_sym_id('latex', Native.latex);
+        case Native.sexpr: return create_sym_id('sexpr', Native.sexpr);
         case Native.fn: return create_sym_id('fn', Native.fn);
         case Native.function: return create_sym_id('function', Native.function);
         case Native.gamma: return create_sym_id('gamma', Native.gamma);
